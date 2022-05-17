@@ -5,6 +5,17 @@
     <title>Chat Rooms</title>
 </head>
 <body>
+    {% if request.user.is_authenticated %}
+        <button><a href="/accounts/logout/">Change user</a> </button>
+    {% else %}
+        <button>Login</button>
+    {% endif %}
+    <hr>
+    {% for user in users %}
+        <p><a href="">{{ user.username }}</a></p>
+    {% endfor %}
+
+
     What chat room would you like to enter?<br>
     <input id="room-name-input" type="text" size="100"><br>
     <input id="room-name-submit" type="button" value="Enter">
